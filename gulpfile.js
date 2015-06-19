@@ -12,11 +12,13 @@ var gulp = require('gulp'),
 	pngquant =require('imagemin-pngquant'),
 	rimraf = require('rimraf'),
 	browserSync = require('browser-sync'),
-	reload = browserSync.reload;
+	reload = browserSync.reload,
+	jade = require('gulp-jade');
 
 var path = {
 	build: {
 		html: 'build/',
+		jade: 'build/',
 		js: 'build/js/',
 		css: 'build/css/',
 		img: 'build/img/',
@@ -24,6 +26,7 @@ var path = {
 	},
 	src: {
 		html: 'src/*.html',
+		jade: 'src/*.jade',
 		js: 'src/js/main.js',
 		style: 'src/style/main.scss',
 		img: 'src/img/**/*.*',
@@ -31,6 +34,7 @@ var path = {
 	},
 	watch: {
 		html: 'src/**/*.html',
+		jade: 'src/**/*.jade', 
 		js: 'src/js/**/*.js',
 		style: 'src/style/**/*.scss',
 		img: 'src/img/**/*.*',
@@ -56,6 +60,15 @@ gulp.task('html:build', function() {
 		.pipe(reload({stream: true}));
 })
 
+gulp.task('jade:build', function() {
+	gulp.src(path.src.jade)
+//		.pipe(rigger())
+		.pipe(jade({pretty: true}))
+		.on('error', console.log) // Выводим ошибки в консоль
+		.pipe(gulp.dest(path.build.jade))
+		.pipe(reload({stream: true}));
+})
+
 gulp.task('js:build', function() {
 	gulp.src(path.src.js)
 		.pipe(rigger())
@@ -70,6 +83,7 @@ gulp.task('style:build', function() {
 	gulp.src(path.src.style)
 		.pipe(sourcemaps.init())
 		.pipe(sass())
+		.on('error', console.log) // Выводим ошибки в консоль
 		.pipe(prefixer())
 		.pipe(cssmin())
 		.pipe(sourcemaps.write())
@@ -95,7 +109,8 @@ gulp.task('fonts:build', function() {
 });
 
 gulp.task('build', [
-		'html:build',
+//		'html:build',
+		'jade:build',
 		'js:build',
 		'style:build',
 		'fonts:build',
@@ -103,8 +118,11 @@ gulp.task('build', [
 ]);
 
 gulp.task('watch', function() {
-	watch([path.watch.html], function(event, cb) {
+/*	watch([path.watch.html], function(event, cb) {
 		gulp.start('html:build');
+	});*/
+	watch([path.watch.jade], function(event, cb) {
+		gulp.start('jade:build');
 	});
 	watch([path.watch.style], function(event, cb) {
 		gulp.start('style:build');
