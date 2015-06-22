@@ -1,5 +1,5 @@
 {
-  "name": "gulp-test",
+  "name": "santehv2",
   "version": "0.0.0",
   "authors": [
     "Victor Potasyev <vpotasyev@gmail.com>"
@@ -12,8 +12,9 @@
     "test",
     "tests"
   ],
-   "dependencies": {
-     "normalize.css": "*",
-     "jquery": "2.*"
+  "dependencies": {
+    "normalize.css": "*",
+    "jquery": "2.*",
+    "bootstrap-sass": "~3.3.5"
   }
 }

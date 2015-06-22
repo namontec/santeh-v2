@@ -7,6 +7,6 @@
 /*
  * Custom
  */
-//= partials/app.js
+// partials/app.js
 
 console.log('Main JS file');
