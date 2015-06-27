@@ -85,7 +85,7 @@ gulp.task('style:build', function() {
 		.pipe(sass())
 		.on('error', console.log) // Выводим ошибки в консоль
 		.pipe(prefixer())
-		.pipe(cssmin())
+		//.pipe(cssmin())
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.css))
 		.pipe(reload({stream: true}));
