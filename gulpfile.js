@@ -30,7 +30,7 @@ var path = {
 		js: 'src/js/main.js',
 		style: 'src/style/main.scss',
 		img: 'src/img/**/*.*',
-		fonts: 'src/fonts/'
+		fonts: 'src/fonts/**/*.*'
 	},
 	watch: {
 		html: 'src/**/*.html',
