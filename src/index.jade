@@ -7,7 +7,7 @@ head
   link(rel="stylesheet", href="css/main.css")
 body
   .container
-    .row.header
+    header.row
       .logo
         .logo-image
           img(src="img/logo1.png")
@@ -18,18 +18,21 @@ body
         .call-phone 8 (8152) 
           span 23-45-68
     .row
-      .title
-        .title-text
-          h3 Комплексные<br>сантехнические<br>работы
-          ul
-            li ремонт и замена канализации
-            li работа с системой теплоснабжения
-            li замена стояков и розлиов
-            li установка и замена счётчиков
+      .image-frame-container
+        .title.image-frame
+          .title-text
+            h3 Комплексные<br>сантехнические<br>работы
+            ul
+              li ремонт и замена канализации
+              li работа с системой теплоснабжения
+              li замена стояков и розлиов
+              li установка и замена счётчиков
 
     .row
       article
         .article-left
+          .image-frame-container
+            img(class="image-frame" src="img/work-1.jpg")
           h2 Почему важно выбрать опытного специалиста?
           p.
             Cантехнические работы – это целый спектр услуг по работе с самым сложным и 
@@ -46,7 +49,9 @@ body
             ремонте сантехнических приборов.
         
         .article-right
-          h2 Почему выбирают нас?
+          .image-frame-container
+            img(class="image-frame" src="img/work-2.jpg")
+          h2 Почему выбирают нас
           p.
             Наши специалисты-сантехники проведут любые работы в самые сжатые сроки.
             Квалификация наших мастеров позволяет интегрировать разнообразные сантехнические 
@@ -65,6 +70,11 @@ body
       footer
         .call-tagline
           img(src="img/call2.png")
-        .call-phone 8 (8152) 23-45-68    
+        .call-phone 8 (8152) 
+          span 23-45-68
+
+    .line-bottom
+    .credits (c) 2015 Разработка и поддержка 
+      a(href="http://nmstudio.ru/") nmstudio.ru
 
 script(src='js/main.js')
