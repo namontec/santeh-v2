@@ -62,7 +62,7 @@ gulp.task('html:build', function() {
 
 gulp.task('jade:build', function() {
 	gulp.src(path.src.jade)
-//		.pipe(rigger())
+		.pipe(rigger())
 		.pipe(jade({pretty: true}))
 		.on('error', console.log) // Выводим ошибки в консоль
 		.pipe(gulp.dest(path.build.jade))
@@ -81,12 +81,12 @@ gulp.task('js:build', function() {
 
 gulp.task('style:build', function() {
 	gulp.src(path.src.style)
-		.pipe(sourcemaps.init())
+		//.pipe(sourcemaps.init())
 		.pipe(sass())
 		.on('error', console.log) // Выводим ошибки в консоль
 		.pipe(prefixer())
 		//.pipe(cssmin())
-		.pipe(sourcemaps.write())
+		//.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.css))
 		.pipe(reload({stream: true}));
 });
